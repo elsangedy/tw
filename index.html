@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Two-Way Data Binding Object.observe</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>First Name</label>
+				<input type="text" class="form-control" data-bind="firstName">
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Last Name</label>
+				<input type="text" class="form-control" data-bind="lastName">
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Age</label>
+				<input type="number" class="form-control" data-bind="age">
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label>Last Name</label>
+				<select class="form-control" data-bind="color">
+					<option value="Green">Green</option>
+					<option value="Blue">Blue</option>
+					<option value="Red">Red</option>
+					<option value="Yellow">Yellow</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<ul class="list-group">
+		<li class="list-group-item">
+			<strong>Name:</strong>
+			<span data-bind="firstName"></span> <span data-bind="lastName"></span>
+		</li>
+		<li class="list-group-item">
+			<strong>Age:</strong>
+			<span data-bind="age"></span>
+		</li>
+		<li class="list-group-item">
+			<strong>Color:</strong>
+			<span data-bind="color"></span>
+		</li>
+	</ul>
+
+	<button type="button" class="btn btn-primary" onclick="update()">Update</button>
+
+	<script src="tw.js"></script>
+	<script>
+	Tw.init({
+		firstName: 'Munir',
+		lastName: 'Ahmed',
+		age: 21,
+		color: 'Red'
+	});
+
+	function update() {
+		Tw.bindings.firstName = 'John';
+		Tw.bindings.lastName = 'Doe';
+		Tw.bindings.age = 30;
+		Tw.bindings.color = 'Blue';
+	}
+	</script>
+</body>
+</html>
